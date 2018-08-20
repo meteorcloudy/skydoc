@@ -86,7 +86,7 @@ skylark_doc = rule(
         "link_ext": attr.string(),
         "site_root": attr.string(),
         "skydoc": attr.label(
-            default = Label("//third_party/py/skydoc/skydoc"),
+            default = Label("//skydoc"),
             cfg = "host",
             executable = True,
         ),
@@ -153,7 +153,7 @@ Example:
   following target to `rules/BUILD`:
 
   ```python
-  load("@io_bazel_skydoc//third_party/py/skydoc/skylark:skylark.bzl", "skylark_doc")
+  load("@io_bazel_skydoc//skylark:skylark.bzl", "skylark_doc")
 
   skylark_doc(
       name = "checkstyle-docs",
