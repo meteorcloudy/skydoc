@@ -7,6 +7,14 @@ load("//skylark:skylark.bzl", "skylark_doc")
 load("//skylark:skydoc.bzl", "skydoc")
 
 skylark_library(
+    name = "skylark",
+    srcs = ["skylark.bzl"],
+    deps = [
+        "@bazel_skylib//:skylark_library"
+    ],
+)
+
+skylark_library(
     name = "skydoc_lib",
     srcs = ["skydoc.bzl"],
     deps = [
