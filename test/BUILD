@@ -4,11 +4,11 @@ sh_test(
     name = "skydoc_self_gen_test",
     srcs = ["diff_test_runner.sh"],
     args = [
-        "$(location //skylark:skydoc_doc.md)",
- 	"$(location :self_doc_golden.md)"
+        "$(location //skylark:stardoc_doc.md)",
+        "$(location :self_doc_golden.md)"
     ],
     data = [
-        ":self_doc_golden.md",
-        "//skylark:skydoc_doc.md",
+        "self_doc_golden.md",
+        "//skylark:stardoc_doc.md",
     ],
 )

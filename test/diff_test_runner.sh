@@ -29,9 +29,9 @@ DIFF="$(diff ${actual_file} ${golden_file})"
 
 if [ "$DIFF" != "" ]
 then
-    echo "Actual did not match golden."
+    echo "FAIL: Actual did not match golden."
     echo "${DIFF}"
     exit 1
 else
-    echo "Result matches golden file"
+    echo "SUCCESS: Result matches golden file"
 fi
