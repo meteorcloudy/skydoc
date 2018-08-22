@@ -14,6 +14,8 @@ git_repository(
 git_repository(
     name = "io_bazel",
     remote = "https://github.com/bazelbuild/bazel.git",
+    # TODO(cparsons): Depend on a release tag of bazel when there is
+    # a valid release containing an updated stardoc binary.
     commit = "b749ab1f8549cdad0a574c356a57fe7181b07851",
 )
 http_archive(
