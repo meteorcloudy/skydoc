@@ -19,14 +19,14 @@ load("@bazel_skylib//:skylark_library.bzl", "SkylarkLibraryInfo")
 def _stardoc_impl(ctx):
     """Implementation of the stardoc rule."""
     out_file = ctx.outputs.out
-    input_files = depset(direct = [ctx.files.input[0]], transitive = [
+    input_files = depset(direct = [ctx.file.input], transitive = [
         dep[SkylarkLibraryInfo].transitive_srcs
         for dep in ctx.attr.deps
     ])
     args = [
-        str(ctx.files.input[0].owner),
+        str(ctx.file.input.owner),
         ctx.outputs.out.path,
-    ] + ctx.attr.rule_names
+    ] + ctx.attr.symbol_names
     stardoc = ctx.executable.stardoc
     ctx.actions.run(
         outputs = [out_file],
@@ -58,11 +58,11 @@ This rule is an experimental replacement for the existing skylark_doc rule.
             doc = "The (markdown) file to which documentation will be output.",
             mandatory = True,
         ),
-        "rule_names": attr.string_list(
+        "symbol_names": attr.string_list(
             doc = """
-A list of rule names to generate documentation for. These should correspond to
-the names of exported symbols for rule definitions in the input file. If this list
-is empty, then documentation for all exported rule definitions will be generated.
+A list of symbol names to generate documentation for. These should correspond to
+the names of rule definitions in the input file. If this list is empty, then
+documentation for all exported rule definitions will be generated.
 """,
             default = [],
         ),

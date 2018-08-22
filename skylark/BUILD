@@ -34,6 +34,6 @@ stardoc(
     name = "stardoc_doc",
     input = ":stardoc.bzl",
     deps = [":stardoc_lib"],
-    rule_names = ["stardoc"],
+    symbol_names = ["stardoc"],
     out = "stardoc_doc.md",
 )
