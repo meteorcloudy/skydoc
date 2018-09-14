@@ -24,11 +24,13 @@ genrule(
     name = "jekyll-tree",
     srcs = [
         ":jekyll-base",
+        "//skylark:stardoc_doc",
         "//skylark:skylark-docs",
     ],
     outs = ["jekyll-tree.tar"],
     cmd = ("$(location jekyll-tree.sh) $@ " +
            "$(location jekyll-base) " +
-           "$(location //skylark:skylark-docs) "),
+           "$(location //skylark:skylark-docs) " +
+           "$(location //skylark:stardoc_doc) "),
     tools = ["jekyll-tree.sh"],
 )
