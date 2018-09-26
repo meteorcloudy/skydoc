@@ -210,10 +210,7 @@ py_library(
 GFLAGS_BUILD_FILE = """
 py_library(
     name = "gflags",
-    srcs = [
-        "gflags.py",
-        "gflags_validators.py",
-    ],
+    srcs = glob(["**/*.py"]),
     visibility = ["//visibility:public"],
 )
 """
@@ -289,10 +286,10 @@ def skydoc_repositories():
 
     http_archive(
         name = "gflags_repo",
-        urls = ["https://github.com/google/python-gflags/archive/python-gflags-2.0.zip"],
-        sha256 = "344990e63d49b9b7a829aec37d5981d558fea12879f673ee7d25d2a109eb30ce",
+	urls = ["https://github.com/google/python-gflags/releases/download/3.1.2/python-gflags-3.1.2.tar.gz"],
+        sha256 = "40ae131e899ef68e9e14aa53ca063839c34f6a168afe622217b5b875492a1ee2",
         build_file_content = GFLAGS_BUILD_FILE,
-        strip_prefix = "python-gflags-python-gflags-2.0",
+        strip_prefix = "python-gflags-3.1.2",
     )
 
     native.bind(

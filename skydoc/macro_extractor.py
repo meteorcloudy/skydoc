@@ -112,7 +112,7 @@ class MacroDocExtractor(object):
       if attr_name in extracted_docs.attr_docs:
         attr.documentation = extracted_docs.attr_docs[attr_name]
 
-    for template, doc in extracted_docs.output_docs.iteritems():
+    for template, doc in extracted_docs.output_docs.items():
       output = rule.output.add()
       output.template = template
       output.documentation = doc
@@ -131,7 +131,7 @@ class MacroDocExtractor(object):
           self._add_macro_doc(stmt)
     except IOError as e:
       # Ignore missing extension
-      print("Failed to parse {0}: {1}".format(bzl_file, e.strerror))
+      print(("Failed to parse {0}: {1}".format(bzl_file, e.strerror)))
       pass
 
   def proto(self):
