@@ -14,7 +14,6 @@
 # limitations under the License.
 
 set -eu
-set -x
 
 readonly OUTPUT=${PWD}/$1
 shift
